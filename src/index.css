@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+@media screen {
+  /* Réduit l'échelle générale à ~80% uniquement à l'écran, sans impacter l'impression */
+  html {
+    font-size: 12.8px;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #4169E1 0%, #1E3A8A 100%);
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #4169E1 0%, #1E3A8A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-elegant {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.skill-tag {
+  background: linear-gradient(135deg, #4169E1 0%, #6366F1 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+  margin: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.skill-tag:hover {
+  transform: scale(1.05);
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  html {
+    font-size: 12.5px;
+  }
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+  
+  .glass-effect {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+  
+  .gradient-bg {
+    background: #667eea !important;
+  }
+
+  /* Compactage général pour réduire le nombre de pages */
+  .cv-main,
+  .cv-sidebar {
+    padding: 20px !important;
+  }
+  /* Évite que le contenu imprimé colle aux bords de la page si le navigateur rogne la marge */
+  .cv-root {
+    padding: 8px !important;
+  }
+  .cv-root .mb-12 {
+    margin-bottom: 1.5rem !important;
+  }
+  .cv-root .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1rem !important;
+  }
+
+  /* Page setup */
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  /* Force same layout as large screen */
+  .cv-columns {
+    flex-direction: row !important;
+    align-items: stretch !important;
+  }
+  .cv-sidebar {
+    width: 33.333333% !important;
+  }
+  .cv-main {
+    width: 66.666667% !important;
+  }
+  .cv-root {
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  /* Pagination controls */
+  .avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Évite une césure immédiatement après un titre */
+  h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .page-break {
+    break-before: page;
+    page-break-before: always;
+  }
+  .print-break-before {
+    break-before: page;
+    page-break-before: always;
+  }
+  /* Ajoute un léger décalage en haut de la nouvelle page pour éviter l'effet collé à la marge d'impression */
+  .after-break-offset {
+    padding-top: 8px !important;
+    margin-top: 4px !important;
+  }
+}
