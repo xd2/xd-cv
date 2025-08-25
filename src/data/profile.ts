@@ -52,6 +52,7 @@ export interface ProfileData {
     name: string;
     level: string;
   }[];
+  projects: Project[];
   interests: string[];
 }
 
@@ -167,8 +168,15 @@ export const profileData: ProfileData = {
     {name: "English", level: "Full professional proficiency"}
   ],
 
-
   interests: [
     "Family life", "Street-workout athlete", "Body builder", "Electronic maker"
-  ]
+  ],
+  projects: [
+    {
+      name: "Subwriters Platform",
+      description: "End-to-end GenAI application development",
+      technologies: ["Python", "TypeScript", "React"]
+    }
+  ],
+
 };
