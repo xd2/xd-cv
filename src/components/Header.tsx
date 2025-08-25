@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { ProfileData } from '../data/profile';
-import profileImg from '../assets/profile.png';
+import profileImg from '../assets/xd.png';
 
 interface HeaderProps {
   profile: ProfileData;
